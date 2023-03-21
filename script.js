@@ -3,6 +3,8 @@ const inputPergunta_1 = document.getElementById("inputPergunta_1");
 const inputPergunta_2 = document.getElementById("inputPergunta_2");
 const resultadoIA = document.getElementById("resultadoIA");
 
+const openaiApiKey = process.env.OPENAI_API_KEY;
+
 function EnviarPergunta() {
 	var valorPergunta = 'Como melhorar a ' + inputPergunta.value + ' do meu e-commerce que hoje é de ' + inputPergunta_1.value + '. A minha meta é alcançar uma melhora de ' + inputPergunta_2.value + ' nessa métrica. Lembre-se de apresentar uma resposta curta e com ações de efeito rápido';
 
