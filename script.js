@@ -13,7 +13,7 @@ function EnviarPergunta() {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json", 
-      Authorization: "Bearer " + OPENAI_API_KEY,
+      Authorization: "Bearer " + openaiApiKey,
     },
     body: JSON.stringify({
       model: "text-davinci-003",
