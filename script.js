@@ -2,8 +2,12 @@ const inputPergunta = document.getElementById("inputPergunta");
 const inputPergunta_1 = document.getElementById("inputPergunta_1");
 const inputPergunta_2 = document.getElementById("inputPergunta_2");
 const resultadoIA = document.getElementById("resultadoIA");
+require('dotenv').config();
 
-const openaiApiKey = process.env.OPENAI_API_KEY;
+const openai = require('openai');
+const api_key = process.env.OPENAI_API_KEY
+
+openai.api_key = api_key
 
 function EnviarPergunta() {
 	var valorPergunta = 'Como melhorar a ' + inputPergunta.value + ' do meu e-commerce que hoje é de ' + inputPergunta_1.value + '. A minha meta é alcançar uma melhora de ' + inputPergunta_2.value + ' nessa métrica. Lembre-se de apresentar uma resposta curta e com ações de efeito rápido';
@@ -13,7 +17,7 @@ function EnviarPergunta() {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json", 
-      Authorization: "Bearer " + openaiApiKey,
+      Authorization: "Bearer " + api_key,
     },
     body: JSON.stringify({
       model: "text-davinci-003",
