@@ -2,21 +2,18 @@ const inputPergunta = document.getElementById("inputPergunta");
 const inputPergunta_1 = document.getElementById("inputPergunta_1");
 const inputPergunta_2 = document.getElementById("inputPergunta_2");
 const resultadoIA = document.getElementById("resultadoIA");
-import dotenv from './node_modules/dotenv';
-dotenv.config();
 
-import { api_key as _api_key } from './node_modules/openai';
-const api_key = process.env.OPENAI_API_KEY;
+
 
 function EnviarPergunta() {
-	var valorPergunta = 'Como melhorar a ' + inputPergunta.value + ' do meu e-commerce que hoje é de ' + inputPergunta_1.value + '. A minha meta é alcançar uma melhora de ' + inputPergunta_2.value + ' nessa métrica. Lembre-se de apresentar uma resposta curta e com ações de efeito rápido';
+	var valorPergunta = 'Como melhorar a ' + inputPergunta.value;
 
   fetch("https://api.openai.com/v1/completions", {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json", 
-      Authorization: "Bearer " + api_key,
+      Authorization: "Bearer " + OPENAI_API_KEY,
     },
     body: JSON.stringify({
       model: "text-davinci-003",
